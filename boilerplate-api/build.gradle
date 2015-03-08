@@ -5,9 +5,9 @@ repositories {
 }
 
 dependencies {
-	compile 'com.google.guava:guava:17.0'
+    compile 'com.google.guava:guava:17.0'
 }
 
 javadoc {
-	options.overview = 'src/main/java/overview.html'
+    options.overview = 'src/main/java/overview.html'
 }

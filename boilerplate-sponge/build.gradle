@@ -6,9 +6,9 @@ repositories {
         url 'http://repo.spongepowered.org/maven'
     }
     maven {
-		name = 'sonatype-nexus'
-		url = 'https://oss.sonatype.org/content/groups/public/'
-	}
+        name = 'sonatype-nexus'
+        url = 'https://oss.sonatype.org/content/groups/public/'
+    }
     mavenCentral()
 }
 
@@ -22,7 +22,7 @@ jar {
     from {
         (configurations.runtime - configurations.provided).collect {
             it.isDirectory() ? it : zipTree(it)
-	    }
+        }
     }
 }
 

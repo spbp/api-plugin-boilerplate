@@ -1,5 +1,5 @@
 /*
- * This file is part of Boilerplate, licensed under the MIT License (MIT).
+ * This file is part of sponge-boilerplate, licensed under the MIT License (MIT).
  *
  * Copyright (c) 2015 Felix Schmidt <http://homepage.rub.de/Felix.Schmidt-c2n/>
  * Copyright (c) contributors

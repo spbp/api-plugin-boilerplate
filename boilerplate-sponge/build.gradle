@@ -1,0 +1,19 @@
+version = '0.1.0-SNAPSHOT'
+archivesBaseName = 'boilerplate-sponge'
+
+repositories {
+    maven {
+        name 'Sponge maven repo'
+        url 'http://repo.spongepowered.org/maven'
+    }
+    maven {
+		name = 'sonatype-nexus'
+		url = 'https://oss.sonatype.org/content/groups/public/'
+	}
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':boilerplate-api')
+    provided 'org.spongepowered:spongeapi:1.1-SNAPSHOT'
+}

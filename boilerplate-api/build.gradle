@@ -1,0 +1,15 @@
+version = '0.1.0-SNAPSHOT'
+archivesBaseName = 'boilerplate-api'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	compile 'com.google.guava:guava:17.0'
+}
+
+javadoc {
+	options.overview = 'src/main/java/overview.html'
+}
+    

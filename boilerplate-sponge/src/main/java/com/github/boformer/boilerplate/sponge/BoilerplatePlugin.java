@@ -37,41 +37,41 @@ import com.google.inject.Inject;
 @Plugin(id = "boilerplate", name = "Boilerplate", version = "0.1.0-SNAPSHOT")
 public class BoilerplatePlugin {
 
-	@Inject
-	Game game;
+    @Inject
+    Game game;
 
-	@Inject
-	Logger logger;
+    @Inject
+    Logger logger;
 
-	NotificationService provider;
+    NotificationService provider;
 
-	@Subscribe
-	private void onPreInitialization(PreInitializationEvent event) {
-		logger.info("Boilerplate plugin loaded! Now add your own code :)");
+    @Subscribe
+    private void onPreInitialization(PreInitializationEvent event) {
+        this.logger.info("Boilerplate plugin loaded! Now add your own code :)");
 
-		logger.info("Registering sample service...");
+        this.logger.info("Registering sample service...");
 
-		provider = new SimpleNotificationService();
-		provider.setNotification("Welcome to the server!");
+        this.provider = new SimpleNotificationService();
+        this.provider.setNotification("Welcome to the server!");
 
-		try {
-			// Try to register this service
-			game.getServiceManager().setProvider(this,
-					NotificationService.class, provider);
+        try {
+            // Try to register this service
+            this.game.getServiceManager().setProvider(this,
+                    NotificationService.class, this.provider);
 
-		} catch (ProviderExistsException e) {
-			logger.info("Sample service was already registered by another plugin :(");
+        } catch (ProviderExistsException e) {
+            this.logger.info("Sample service was already registered by another plugin :(");
 
-			// Remove reference to free up memory
-			provider = null;
+            // Remove reference to free up memory
+            this.provider = null;
 
-			// shut down
-			return;
-		}
+            // Shut down
+            return;
+        }
 
-		logger.info("Successfully registered sample service!");
+        this.logger.info("Successfully registered sample service!");
 
-		logger.info("Subscribing to events...");
-		game.getEventManager().register(this, provider);
-	}
+        this.logger.info("Subscribing to events...");
+        this.game.getEventManager().register(this, this.provider);
+    }
 }

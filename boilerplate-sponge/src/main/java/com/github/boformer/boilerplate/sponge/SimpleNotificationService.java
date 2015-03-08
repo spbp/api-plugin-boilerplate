@@ -32,26 +32,28 @@ import com.google.common.base.Optional;
 
 public class SimpleNotificationService implements NotificationService {
 
-	String msg;
-	
-	@Override
-	public Optional<String> getNotification() {
-		return Optional.fromNullable(msg);
-	}
+    String msg;
 
-	@Override
-	public void setNotification(String message) {
-		this.msg = message;
-	}
+    @Override
+    public Optional<String> getNotification() {
+        return Optional.fromNullable(this.msg);
+    }
 
-	@Override
-	public void clearNotification() {
-		this.msg = null;
-	}
-	
-	@Subscribe
-	private void onPlayerJoin(PlayerJoinEvent event) 
-	{
-		if(msg != null) event.getPlayer().sendMessage(msg);
-	}
+    @Override
+    public void setNotification(String message) {
+        this.msg = message;
+    }
+
+    @Override
+    public void clearNotification() {
+        this.msg = null;
+    }
+
+    @Subscribe
+    private void onPlayerJoin(PlayerJoinEvent event)
+    {
+        if (this.msg != null) {
+            event.getPlayer().sendMessage(this.msg);
+        }
+    }
 }

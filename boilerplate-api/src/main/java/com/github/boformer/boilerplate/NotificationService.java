@@ -27,31 +27,32 @@ package com.github.boformer.boilerplate;
 import com.google.common.base.Optional;
 
 /**
- * This service can be used by plugins to set a notification message that is 
+ * This service can be used by plugins to set a notification message that is
  * displayed when a player joins the server.
- * 
- * <p>The provider of the service can be obtained from the Sponge 
+ *
+ * <p>The provider of the service can be obtained from the Sponge
  * {@code ServiceManager}</p>
  */
-public interface NotificationService 
+public interface NotificationService
 {
-	/**
-	 * Gets the currently set notification message, if there is one.
-	 * 
-	 * @return The message
-	 */
-	Optional<String> getNotification();
-	
-	/**
-	 * Sets the notification message.
-	 * 
-	 * @param message The message
-	 */
-	void setNotification(String message);
-	
-	/**
-	 * Removes the current notification message. After that, no message will be
-	 * displayed to the players until a new message is set.
-	 */
-	void clearNotification();
+
+    /**
+     * Gets the currently set notification message, if there is one.
+     * 
+     * @return The message
+     */
+    Optional<String> getNotification();
+
+    /**
+     * Sets the notification message.
+     * 
+     * @param message The message
+     */
+    void setNotification(String message);
+
+    /**
+     * Removes the current notification message. After that, no message will be
+     * displayed to the players until a new message is set.
+     */
+    void clearNotification();
 }

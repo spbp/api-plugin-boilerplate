@@ -27,12 +27,6 @@ subprojects {
 	
 	group = 'com.github.boformer.boilerplate'
 	
-	configurations {
-	    provided
-	    compile.extendsFrom provided
-	}
-	
-	// License header formatting
 	license {
 	    ext.name = rootProject.projectName
 	    ext.author = rootProject.author
@@ -50,15 +44,6 @@ subprojects {
 	    }
 	}
 	
-	jar {
-	    dependsOn configurations.runtime
-	    from {
-	        (configurations.runtime - configurations.provided).collect {
-	            it.isDirectory() ? it : zipTree(it)
-		    }
-	    }
-	}
-	
     task sourcesJar(type: Jar, dependsOn: classes) {
 		classifier = "sources"
 		from sourceSets.main.allSource
@@ -69,9 +54,7 @@ subprojects {
 		from javadoc.destinationDir
 	}
 	
-	// Filter, process, and include resources
 	processResources {
-	    // Include in final JAR
 	    from new File(rootProject.getProjectDir(), "LICENSE.txt")
 	}
 	

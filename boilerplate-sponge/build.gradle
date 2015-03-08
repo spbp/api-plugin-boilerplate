@@ -12,6 +12,20 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    provided
+    compile.extendsFrom provided
+}
+
+jar {
+    dependsOn configurations.runtime
+    from {
+        (configurations.runtime - configurations.provided).collect {
+            it.isDirectory() ? it : zipTree(it)
+	    }
+    }
+}
+
 dependencies {
     compile project(':boilerplate-api')
     provided 'org.spongepowered:spongeapi:1.1-SNAPSHOT'

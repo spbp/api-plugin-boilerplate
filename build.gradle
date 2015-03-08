@@ -1,8 +1,9 @@
+// Import plugins
 buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
+	repositories {
+		jcenter()
+	}
+	dependencies {
         classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.11.0'
     }
 }
@@ -14,73 +15,85 @@ ext.author = 'Felix Schmidt'
 ext.authorUrl = 'http://homepage.rub.de/Felix.Schmidt-c2n/'
 ext.inceptionYear = '2015'
 
+// Set subprojects' versions
 project(':boilerplate-api').version = '1.0'
 project(':boilerplate-sponge').version = '0.1.0-SNAPSHOT'
 
+// Everything in the subprojects closure is automatically applied to all subprojects.
 subprojects {
-    apply plugin: 'java'
-    apply plugin: 'maven'
-    apply plugin: 'license'
-    
-    sourceCompatibility = 1.7
-    targetCompatibility = 1.7
-    
-    group = 'com.github.boformer.boilerplate'
-    
-    license {
-        ext.name = rootProject.projectName
-        ext.author = rootProject.author
-        ext.url = rootProject.authorUrl
-        ext.year = rootProject.inceptionYear
-        exclude "**/*.info"
-        exclude "**/*.html"
-        exclude "assets/**"
-        header new File(rootProject.getProjectDir(), "HEADER.txt")
-        sourceSets = project.sourceSets
-        ignoreFailures false
-        strictCheck true
-        mapping {
-            java = 'SLASHSTAR_STYLE'
-        }
-    }
-    
-    task sourcesJar(type: Jar, dependsOn: classes) {
-        classifier = "sources"
-        from sourceSets.main.allSource
-    }
-    
-    task javadocJar(type: Jar, dependsOn: javadoc) {
-        classifier = "javadoc"
-        from javadoc.destinationDir
-    }
-    
-    processResources {
-        from new File(rootProject.getProjectDir(), "LICENSE.txt")
-    }
-    
-    artifacts {
-        archives jar
-        archives sourcesJar
-        archives javadocJar
-    }
-    
-    build.dependsOn(sourcesJar)
-    build.dependsOn(javadocJar)
-    
-    uploadArchives {
-        repositories {
-            mavenDeployer {
-                // mavenUrl has to be set in your {userfolder}/.gradle/gradle.properties file
-                // Example file content: 
-                // mavenUrl=file:///C://mvn-repo/
-                repository(url: mavenUrl)
-    
-                pom {
-                    groupId = project.group
-                    artifactId = project.archivesBaseName
-                    version = project.version
-                }
-            }
-        }
-    }
+	// Apply plugins
+	apply plugin: 'java' // Support for Java
+	apply plugin: 'maven' // Maven integration
+	apply plugin: 'license' //Automatic license headers
+	
+	// Set compatibility
+	sourceCompatibility = 1.7
+	targetCompatibility = 1.7
+	
+	// Maven group
+	group = 'com.github.boformer.boilerplate'
+	
+	// Configure license headers
+	license {
+	    ext.name = rootProject.projectName
+	    ext.author = rootProject.author
+	    ext.url = rootProject.authorUrl
+	    ext.year = rootProject.inceptionYear
+	    exclude "**/*.info"
+	    exclude "**/*.html"
+	    exclude "assets/**"
+	    header new File(rootProject.getProjectDir(), "HEADER.txt")
+	    sourceSets = project.sourceSets
+	    ignoreFailures false
+	    strictCheck true
+	    mapping {
+	        java = 'SLASHSTAR_STYLE'
+	    }
+	}
+	
+	// Task to generate source jar
+    	task sourcesJar(type: Jar, dependsOn: classes) {
+		classifier = "sources"
+		from sourceSets.main.allSource
+	}
+	
+	// Task to generate javadoc jar
+	task javadocJar(type: Jar, dependsOn: javadoc) {
+		classifier = "javadoc"
+		from javadoc.destinationDir
+	}
+	
+	// Include LICENSE.txt in all jars
+	processResources {
+	    from new File(rootProject.getProjectDir(), "LICENSE.txt")
+	}
+	
+	// Define compiled jar, sources jar and javadoc jar as Maven artifacts
+	artifacts {
+	    archives jar
+	    archives sourcesJar
+	    archives javadocJar
+	}
+	
+	// Add custom jar tasks to build task
+	build.dependsOn(sourcesJar)
+	build.dependsOn(javadocJar)
+	
+	// Maven deploy
+	uploadArchives {
+	    repositories {
+	        mavenDeployer {
+	        	// mavenUrl has to be set in your {userfolder}/.gradle/gradle.properties file
+	        	// Example file content: 
+	        	// mavenUrl=file:///C://mvn-repo/
+				repository(url: mavenUrl)
+	
+	            pom {
+	                groupId = project.group
+	                artifactId = project.archivesBaseName
+	                version = project.version
+	            }
+	        }
+	    }
+	}
 }

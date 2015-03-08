@@ -1,4 +1,3 @@
-version = '0.1.0-SNAPSHOT'
 archivesBaseName = 'boilerplate-api'
 
 repositories {
@@ -12,4 +11,3 @@ dependencies {
 javadoc {
 	options.overview = 'src/main/java/overview.html'
 }
-    

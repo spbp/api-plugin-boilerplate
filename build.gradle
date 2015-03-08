@@ -7,14 +7,15 @@ buildscript {
     }
 }
 
-
-
 // Extended project information
 ext.projectName = 'sponge-boilerplate'
 ext.packaging = 'jar'
 ext.author = 'Felix Schmidt'
 ext.authorUrl = 'http://homepage.rub.de/Felix.Schmidt-c2n/'
 ext.inceptionYear = '2015'
+
+project(':boilerplate-api').version = '1.0'
+project(':boilerplate-sponge').version = '0.1.0-SNAPSHOT'
 
 subprojects {
 	apply plugin: 'java'

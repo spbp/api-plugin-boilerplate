@@ -1,13 +1,16 @@
 archivesBaseName = 'boilerplate-api'
 
+
+// Set Maven repositories to check for dependencies
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile 'com.google.guava:guava:17.0'
+    compile 'com.google.guava:guava:17.0' // Require Google Guava at runtime
 }
 
+// Set javadoc settings
 javadoc {
     options.overview = 'src/main/java/overview.html'
 }

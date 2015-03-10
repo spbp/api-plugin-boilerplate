@@ -1,4 +1,3 @@
-archivesBaseName = 'boilerplate-sponge'
 
 // Set Maven repositories to check for dependencies
 repositories {

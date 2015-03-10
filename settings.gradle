@@ -1,2 +1,4 @@
+// Set the roo project's name
 rootProject.name = 'boilerplate'
+// Include subprojects by folder name
 include 'boilerplate-api', 'boilerplate-sponge'

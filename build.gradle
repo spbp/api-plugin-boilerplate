@@ -79,7 +79,7 @@ subprojects {
 	build.dependsOn(sourcesJar)
 	build.dependsOn(javadocJar)
 	
-	// Maven deploy
+	// Equivalent to mvn install for your latest artifacts
 	uploadArchives {
 	    repositories {
 	        mavenDeployer {
@@ -90,7 +90,7 @@ subprojects {
 	
 	            pom {
 	                groupId = project.group
-	                artifactId = project.archivesBaseName
+	                artifactId = project.name
 	                version = project.version
 	            }
 	        }

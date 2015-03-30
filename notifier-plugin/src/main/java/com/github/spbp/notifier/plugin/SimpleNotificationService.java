@@ -1,5 +1,5 @@
 /*
- * This file is part of sponge-boilerplate, licensed under the MIT License (MIT).
+ * This file is part of Notifier, licensed under the MIT License (MIT).
  *
  * Copyright (c) 2015 SPBP <https://github.com/spbp>
  * Copyright (c) contributors

@@ -1,7 +1,7 @@
 /*
  * This file is part of sponge-boilerplate, licensed under the MIT License (MIT).
  *
- * Copyright (c) 2015 Felix Schmidt <http://homepage.rub.de/Felix.Schmidt-c2n/>
+ * Copyright (c) 2015 SPBP <https://github.com/spbp>
  * Copyright (c) contributors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy

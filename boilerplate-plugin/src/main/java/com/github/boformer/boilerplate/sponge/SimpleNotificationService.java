@@ -1,7 +1,7 @@
 /*
  * This file is part of sponge-boilerplate, licensed under the MIT License (MIT).
  *
- * Copyright (c) 2015 Felix Schmidt <http://homepage.rub.de/Felix.Schmidt-c2n/>
+ * Copyright (c) 2015 SPBP <https://github.com/spbp>
  * Copyright (c) contributors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,7 +24,8 @@
  */
 package com.github.boformer.boilerplate.sponge;
 
-import org.spongepowered.api.event.entity.living.player.PlayerJoinEvent;
+import org.spongepowered.api.event.entity.player.PlayerJoinEvent;
+import org.spongepowered.api.text.Texts;
 import org.spongepowered.api.util.event.Subscribe;
 
 import com.github.boformer.boilerplate.NotificationService;
@@ -53,7 +54,7 @@ public class SimpleNotificationService implements NotificationService {
     private void onPlayerJoin(PlayerJoinEvent event)
     {
         if (this.msg != null) {
-            event.getPlayer().sendMessage(this.msg);
+            event.getPlayer().sendMessage(Texts.of(this.msg));
         }
     }
 }

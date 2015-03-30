@@ -4,8 +4,8 @@ buildscript {
 		jcenter()
 	}
 	dependencies {
-        classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.11.0'
-    }
+		classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.11.0'
+	}
 }
 
 // Extended project information. Edit these values!
@@ -26,7 +26,9 @@ subprojects {
 	// Apply plugins
 	apply plugin: 'java' // Support for Java
 	apply plugin: 'maven' // Maven integration
-	apply plugin: 'license' //Automatic license headers
+	apply plugin: 'license' // Automatic license headers
+	apply plugin: 'eclipse' // Helper plugin for IDE
+	apply plugin: 'idea' // Helper plugin for IDE
 	
 	// Set compatibility
 	sourceCompatibility = 1.7
@@ -37,24 +39,24 @@ subprojects {
 	
 	// Configure license headers
 	license {
-	    ext.name = rootProject.projectName
-	    ext.author = rootProject.author
-	    ext.url = rootProject.authorUrl
-	    ext.year = rootProject.inceptionYear
-	    exclude "**/*.info"
-	    exclude "**/*.html"
-	    exclude "assets/**"
-	    header new File(rootProject.getProjectDir(), "HEADER.txt")
-	    sourceSets = project.sourceSets
-	    ignoreFailures false
-	    strictCheck true
-	    mapping {
-	        java = 'SLASHSTAR_STYLE'
-	    }
+		ext.name = rootProject.projectName
+		ext.author = rootProject.author
+		ext.url = rootProject.authorUrl
+		ext.year = rootProject.inceptionYear
+		exclude "**/*.info"
+		exclude "**/*.html"
+		exclude "assets/**"
+		header new File(rootProject.getProjectDir(), "HEADER.txt")
+		sourceSets = project.sourceSets
+		ignoreFailures false
+		strictCheck true
+		mapping {
+			java = 'SLASHSTAR_STYLE'
+		}
 	}
 	
 	// Task to generate source jar
-    	task sourcesJar(type: Jar, dependsOn: classes) {
+		task sourcesJar(type: Jar, dependsOn: classes) {
 		classifier = "sources"
 		from sourceSets.main.allSource
 	}
@@ -67,14 +69,14 @@ subprojects {
 	
 	// Include LICENSE.txt in all jars
 	processResources {
-	    from new File(rootProject.getProjectDir(), "LICENSE.txt")
+		from new File(rootProject.getProjectDir(), "LICENSE.txt")
 	}
 	
 	// Define compiled jar, sources jar and javadoc jar as Maven artifacts
 	artifacts {
-	    archives jar
-	    archives sourcesJar
-	    archives javadocJar
+		archives jar
+		archives sourcesJar
+		archives javadocJar
 	}
 	
 	// Add custom jar tasks to build task
@@ -83,19 +85,20 @@ subprojects {
 	
 	// Equivalent to mvn install for your latest artifacts
 	uploadArchives {
-	    repositories {
-	        mavenDeployer {
-	        	// mavenUrl has to be set in your {userfolder}/.gradle/gradle.properties file
-	        	// Example file content: 
-	        	// mavenUrl=file:///C://mvn-repo/
-				repository(url: mavenUrl)
-	
-	            pom {
-	                groupId = project.group
-	                artifactId = project.name
-	                version = project.version
-	            }
-	        }
-	    }
+		repositories {
+			mavenDeployer {
+				// mavenUrl has to be set in your {userfolder}/.gradle/gradle.properties file
+				// Example file content: 
+				// mavenUrl=file:///C://mvn-repo/
+				if (project.hasProperty("mavenUrl")) {
+					repository(url: mavenUrl)
+				}
+				pom {
+					groupId = project.group
+					artifactId = project.name
+					version = project.version
+				}
+			}
+		}
 	}
 }

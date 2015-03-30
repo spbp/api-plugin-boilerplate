@@ -1,6 +1,6 @@
 # Template for Sponge Plugins with a separate API
 
-This template is useful for essential plugins that provide common services (e.g. economy, teleportation, minigames) for other plugins. 
+This template was made for essential plugins that provide common services for other plugins (e.g. economy, teleportation, minigame APIs). 
 
 The separation of the service interfaces (API) and the plugin (implementation of the API) has several advantages:
 

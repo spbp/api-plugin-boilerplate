@@ -1,4 +1,4 @@
-# Template for Sponge Plugins with a separate API
+# Advanced Template for Sponge Plugins with a separate API
 
 This template was made for essential plugins that provide common services for other plugins (e.g. economy, teleportation, minigame APIs). 
 

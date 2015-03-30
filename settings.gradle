@@ -1,4 +1,4 @@
 // Set the root project's name
-rootProject.name = 'boilerplate'
+rootProject.name = 'notifier'
 // Include subprojects by folder name
-include 'boilerplate-api', 'boilerplate-plugin'
+include 'notifier-api', 'notifier-plugin'

@@ -22,7 +22,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.github.boformer.boilerplate.sponge;
+package com.github.spbp.notifier.plugin;
 
 import org.slf4j.Logger;
 import org.spongepowered.api.Game;
@@ -31,11 +31,12 @@ import org.spongepowered.api.plugin.Plugin;
 import org.spongepowered.api.service.ProviderExistsException;
 import org.spongepowered.api.util.event.Subscribe;
 
-import com.github.boformer.boilerplate.NotificationService;
+import com.github.sppb.notifier.api.NotificationService;
 import com.google.inject.Inject;
 
-@Plugin(id = "boilerplate", name = "Boilerplate", version = "0.1.0-SNAPSHOT")
-public class BoilerplatePlugin {
+// Modify these values!
+@Plugin(id = "spbp.notifier", name = "Notifier", version = "0.2.1")
+public class NotifierPlugin {
 
     @Inject
     Game game;

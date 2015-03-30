@@ -22,7 +22,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.github.boformer.boilerplate;
+package com.github.sppb.notifier.api;
 
 import com.google.common.base.Optional;
 

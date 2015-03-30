@@ -22,13 +22,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.github.boformer.boilerplate.sponge;
+package com.github.spbp.notifier.plugin;
 
 import org.spongepowered.api.event.entity.player.PlayerJoinEvent;
 import org.spongepowered.api.text.Texts;
 import org.spongepowered.api.util.event.Subscribe;
 
-import com.github.boformer.boilerplate.NotificationService;
+import com.github.sppb.notifier.api.NotificationService;
 import com.google.common.base.Optional;
 
 public class SimpleNotificationService implements NotificationService {

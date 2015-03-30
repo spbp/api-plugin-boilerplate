@@ -30,3 +30,4 @@ For support see the related [thread][3] on the Sponge Forums.
 [1]: http://docs.oracle.com/javase/tutorial/java/package/namingpkgs.html
 [2]: http://choosealicense.com
 [3]: https://forums.spongepowered.org/t/boilerplate-for-plugins-with-api-implementation/6264
+[4]: https://github.com/spbp/simple-boilerplate

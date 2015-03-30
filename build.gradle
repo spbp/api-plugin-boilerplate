@@ -54,6 +54,35 @@ subprojects {
 			java = 'SLASHSTAR_STYLE'
 		}
 	}
+
+	// Set Maven repositories to check for dependencies
+	repositories {
+		maven {
+			name 'Sponge maven repo'
+			url 'http://repo.spongepowered.org/maven'
+		}
+		maven {
+			name = 'sonatype-nexus'
+			url = 'https://oss.sonatype.org/content/groups/public/'
+		}
+		mavenCentral()
+	}
+	
+	// Add a new dependency configuration
+	configurations {
+		provided
+		compile.extendsFrom provided
+	}
+	
+	// Make the jar task contain all dependencies except for the provided configuration in the final output
+	jar {
+		dependsOn configurations.runtime
+		from {
+			(configurations.runtime - configurations.provided).collect {
+				it.isDirectory() ? it : zipTree(it)
+			}
+		}
+	}
 	
 	// Task to generate source jar
 		task sourcesJar(type: Jar, dependsOn: classes) {

@@ -1,33 +1,3 @@
-
-// Set Maven repositories to check for dependencies
-repositories {
-	maven {
-		name 'Sponge maven repo'
-		url 'http://repo.spongepowered.org/maven'
-	}
-	maven {
-		name = 'sonatype-nexus'
-		url = 'https://oss.sonatype.org/content/groups/public/'
-	}
-	mavenCentral()
-}
-
-// Add a new dependency configuration
-configurations {
-	provided
-	compile.extendsFrom provided
-}
-
-// Make the jar task contain all dependencies except for the provided configuration in the final output
-jar {
-	dependsOn configurations.runtime
-	from {
-		(configurations.runtime - configurations.provided).collect {
-			it.isDirectory() ? it : zipTree(it)
-		}
-	}
-}
-
 dependencies {
 	compile project(':notifier-api') // Include the API in the output jar
 	provided 'org.spongepowered:spongeapi:1.1-SNAPSHOT' // Assume availability of the Sponge API

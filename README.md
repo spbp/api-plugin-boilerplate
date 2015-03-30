@@ -18,8 +18,7 @@ The separation of the service interfaces (API) and the plugin (implementation of
  2. Change the `build.gradle` to match your project.
  3. Modify and rename the `NotifierPlugin` class located in the main project. Remember to change the `@Plugin`-Annotation on line 37.
  4. Change the packet structure to your own. Currently it is `com.github.spbp.notifier` which is simply the domain and user reversed. If you want to find out more about naming conventions go here: [Code Conventions (Oracle.com)][1]. Do this on both the main and the API subprojects.
- 5. The template comes with the MIT License, a very simple open-source license. If you want, [choose a different License][2] for your project and modify the `HEADER.TXT` and `LICENSE.TXT` files.
- 6. 
+ 5. The template comes with the MIT License, a very simple open-source license. If you want, [choose a different license][2] for your project and modify the `HEADER.TXT` and `LICENSE.TXT` files.
 4. Build:
  1. Open a CLI of your choice in the root project folder.
  2. Run `gradlew build` or `./gradlew build` if you're on a *nix system.

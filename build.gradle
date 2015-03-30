@@ -8,16 +8,18 @@ buildscript {
     }
 }
 
-// Extended project information
+// Extended project information. Edit these values!
 ext.projectName = 'sponge-boilerplate'
 ext.packaging = 'jar'
-ext.author = 'Felix Schmidt'
-ext.authorUrl = 'http://homepage.rub.de/Felix.Schmidt-c2n/'
+ext.author = 'SPBP'
+ext.authorUrl = 'https://github.com/spbp'
 ext.inceptionYear = '2015'
 
-// Set subprojects' versions
-project(':boilerplate-api').version = '1.0'
-project(':boilerplate-sponge').version = '0.1.0-SNAPSHOT'
+// Set subprojects' versions. Edit these values! 
+// Don't forget to edit the project names.
+// You can set different version numbers for your API and implementation.
+project(':boilerplate-api').version = '0.1.0'
+project(':boilerplate-plugin').version = '0.2.1'
 
 // Everything in the subprojects closure is automatically applied to all subprojects.
 subprojects {
@@ -31,7 +33,7 @@ subprojects {
 	targetCompatibility = 1.7
 	
 	// Maven group
-	group = 'com.github.boformer.boilerplate'
+	group = 'com.github.spbp.boilerplate'
 	
 	// Configure license headers
 	license {

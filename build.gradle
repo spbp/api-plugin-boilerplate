@@ -35,7 +35,7 @@ subprojects {
 	targetCompatibility = 1.7
 	
 	// Maven group
-	group = 'com.github.spbp.notifier'
+	group = 'com.github.spbp'
 	
 	// Configure license headers
 	license {

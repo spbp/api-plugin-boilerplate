@@ -1,4 +1,4 @@
 // Set the root project's name
-rootProject.name = 'notifier'
+rootProject.name = 'Notifier'
 // Include subprojects by folder name
 include 'notifier-api', 'notifier-plugin'
